@@ -9,6 +9,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { View } from "react-native";
 
 import theme from "@src/theme";
+import { SignIn } from "@src/screens/SignIn";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -19,7 +20,7 @@ export default function App() {
         await SplashScreen.preventAutoHideAsync();
         await Font.loadAsync({
           DMSans_400Regular,
-          DMSerifDisplay_400Regular
+          DMSerifDisplay_400Regular,
         });
       } catch (e) {
         console.warn(e);
@@ -41,8 +42,11 @@ export default function App() {
     return null;
   }
 
-
-  return <View onLayout={onLayoutRootView}>
-    <ThemeProvider theme={theme}></ThemeProvider>
-  </View>;
+  return (
+    <View onLayout={onLayoutRootView}>
+      <ThemeProvider theme={theme}>
+        <SignIn />
+      </ThemeProvider>
+    </View>
+  );
 }
