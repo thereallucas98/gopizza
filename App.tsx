@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { DMSans_400Regular } from "@expo-google-fonts/dm-sans";
 import { DMSerifDisplay_400Regular } from "@expo-google-fonts/dm-serif-display";
+import { ThemeProvider } from "styled-components/native";
 
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
 import { View } from "react-native";
+
+import theme from "@src/theme";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -39,5 +42,7 @@ export default function App() {
   }
 
 
-  return <View onLayout={onLayoutRootView}></View>;
+  return <View onLayout={onLayoutRootView}>
+    <ThemeProvider theme={theme}></ThemeProvider>
+  </View>;
 }
