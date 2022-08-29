@@ -8,8 +8,10 @@ import * as SplashScreen from "expo-splash-screen";
 
 import { View } from "react-native";
 
-import theme from "@src/theme";
-import { SignIn } from "@src/screens/SignIn";
+import { SignIn } from "@screens/SignIn";
+
+import theme from "./src/theme";
+
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -43,10 +45,8 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
       <ThemeProvider theme={theme}>
         <SignIn />
       </ThemeProvider>
-    </View>
   );
 }
